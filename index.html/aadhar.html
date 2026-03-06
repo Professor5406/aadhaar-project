@@ -350,12 +350,10 @@
       return dd + '/' + mm + '/' + yyyy;
     }
 
+    // Aadhaar number is kept fixed by user. Random generation is disabled.
     function randomAadhaar() {
-      let digits = '';
-      for (let i = 0; i < 12; i++) {
-        digits += Math.floor(Math.random() * 10);
-      }
-      return digits.replace(/(\d{4})(\d{4})(\d{4})/, '$1 $2 $3');
+      // Not used - keep existing number in HTML and change manually if needed.
+      return document.getElementById('aadhaar-display')?.textContent || '';
     }
 
     function randomAddress() {
@@ -374,15 +372,11 @@
     function applyRandomData() {
       const nameElem = document.getElementById('name-display');
       const dobElem = document.getElementById('dob-display');
-      const aadFront = document.getElementById('aadhaar-display');
-      const aadBack = document.getElementById('aadhaar-display-back');
+      // Aadhaar elements remain unchanged unless manually edited
       const addressElem = document.querySelector('.address p');
 
       if (nameElem) nameElem.textContent = randomName();
       if (dobElem) dobElem.textContent = 'जन्म तारीख / DOB: ' + randomDOB();
-      const aad = randomAadhaar();
-      if (aadFront) aadFront.textContent = aad;
-      if (aadBack) aadBack.textContent = aad;
       if (addressElem) addressElem.innerHTML = randomAddress();
     }
 
