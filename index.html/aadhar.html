@@ -297,6 +297,43 @@
       "Mehta","Desai","Agarwal","Shetty"
     ];
 
+    // Arrays for random address generation with city-state-PIN mapping
+    const cityData = [
+      { city: "Mumbai", state: "Maharashtra", pinPrefix: "400" },
+      { city: "Delhi", state: "Delhi", pinPrefix: "110" },
+      { city: "Bangalore", state: "Karnataka", pinPrefix: "560" },
+      { city: "Chennai", state: "Tamil Nadu", pinPrefix: "600" },
+      { city: "Kolkata", state: "West Bengal", pinPrefix: "700" },
+      { city: "Pune", state: "Maharashtra", pinPrefix: "411" },
+      { city: "Ahmedabad", state: "Gujarat", pinPrefix: "380" },
+      { city: "Jaipur", state: "Rajasthan", pinPrefix: "302" },
+      { city: "Surat", state: "Gujarat", pinPrefix: "395" },
+      { city: "Hyderabad", state: "Telangana", pinPrefix: "500" },
+      { city: "Lucknow", state: "Uttar Pradesh", pinPrefix: "226" },
+      { city: "Kanpur", state: "Uttar Pradesh", pinPrefix: "208" },
+      { city: "Nagpur", state: "Maharashtra", pinPrefix: "440" },
+      { city: "Indore", state: "Madhya Pradesh", pinPrefix: "452" },
+      { city: "Thane", state: "Maharashtra", pinPrefix: "400" },
+      { city: "Bhopal", state: "Madhya Pradesh", pinPrefix: "462" },
+      { city: "Visakhapatnam", state: "Andhra Pradesh", pinPrefix: "530" },
+      { city: "Patna", state: "Bihar", pinPrefix: "800" },
+      { city: "Vadodara", state: "Gujarat", pinPrefix: "390" },
+      { city: "Ghaziabad", state: "Uttar Pradesh", pinPrefix: "201" }
+    ];
+
+    const streets = [
+      "MG Road", "Brigade Road", "Park Street", "Mall Road", "Station Road",
+      "Ring Road", "Outer Ring Road", "Inner Ring Road", "Main Road", "High Street",
+      "Church Street", "Commercial Street", "Residency Road", "Jubilee Hills",
+      "Banjara Hills", "Connaught Place", "Rajouri Garden", "Karol Bagh"
+    ];
+
+    const areas = [
+      "Sector 15", "Phase 2", "Block A", "Near Temple", "Opposite Park",
+      "Behind School", "Near Market", "Lane 5", "Plot 123", "Flat 4B",
+      "Building 7", "Apartment Complex", "Colony", "Nagar", "Puram"
+    ];
+
     function randomName() {
       const first = firstNames[Math.floor(Math.random() * firstNames.length)];
       const last = lastNames[Math.floor(Math.random() * lastNames.length)];
@@ -321,16 +358,32 @@
       return digits.replace(/(\d{4})(\d{4})(\d{4})/, '$1 $2 $3');
     }
 
+    function randomAddress() {
+      const location = cityData[Math.floor(Math.random() * cityData.length)];
+      const street = streets[Math.floor(Math.random() * streets.length)];
+      const area = areas[Math.floor(Math.random() * areas.length)];
+      const pinSuffix = String(Math.floor(Math.random() * 99) + 1).padStart(3, '0'); // 001-099
+      const pin = location.pinPrefix + pinSuffix;
+
+      const hindiAddress = `S/O ${randomName()}, ${area}, ${street}, ${location.city}, ${location.state} - ${pin}`;
+      const englishAddress = `S/O ${randomName()}, ${area}, ${street}, ${location.city}, ${location.state} - ${pin}`;
+
+      return `<strong>पत्ता:</strong><br>${hindiAddress}<br><br><strong>Address:</strong><br>${englishAddress}`;
+    }
+
     function applyRandomData() {
       const nameElem = document.getElementById('name-display');
       const dobElem = document.getElementById('dob-display');
       const aadFront = document.getElementById('aadhaar-display');
       const aadBack = document.getElementById('aadhaar-display-back');
+      const addressElem = document.querySelector('.address p');
+
       if (nameElem) nameElem.textContent = randomName();
       if (dobElem) dobElem.textContent = 'जन्म तारीख / DOB: ' + randomDOB();
       const aad = randomAadhaar();
       if (aadFront) aadFront.textContent = aad;
       if (aadBack) aadBack.textContent = aad;
+      if (addressElem) addressElem.innerHTML = randomAddress();
     }
 
     window.addEventListener('DOMContentLoaded', applyRandomData);
