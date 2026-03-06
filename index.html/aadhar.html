@@ -212,7 +212,27 @@
 </head>
 <body>
 
-  <!-- FRONT SIDE -->
+  <!-- EDIT CONTROLS -->
+  <div style="background: #f0f0f0; padding: 15px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+    <h3 style="margin-top: 0;">Edit Details:</h3>
+    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+      <div>
+        <label>Aadhaar Number:</label><br>
+        <input type="text" id="edit-aadhaar" placeholder="8226 1528 4611" style="padding: 5px; width: 200px;">
+      </div>
+      <div>
+        <label>Name:</label><br>
+        <input type="text" id="edit-name" placeholder="Virat Patil" style="padding: 5px; width: 200px;">
+      </div>
+      <div>
+        <label>DOB:</label><br>
+        <input type="text" id="edit-dob" placeholder="03/06/2000" style="padding: 5px; width: 200px;">
+      </div>
+      <div>
+        <button onclick="updateDetails()" style="padding: 8px 15px; background: #138808; color: white; border: none; border-radius: 3px; cursor: pointer; align-self: flex-end;">Update</button>
+      </div>
+    </div>
+  </div>
   <div class="aadhaar-card">
     <div class="header">
       <img src=D:\aadhaar-project\images\emblem.png.jpeg alt="Emblem">
@@ -380,7 +400,34 @@
       if (addressElem) addressElem.innerHTML = randomAddress();
     }
 
-    window.addEventListener('DOMContentLoaded', applyRandomData);
+    window.addEventListener('DOMContentLoaded', function() {
+      // Only generate random data on first load of the session
+      if (!sessionStorage.getItem('dataGenerated')) {
+        applyRandomData();
+        sessionStorage.setItem('dataGenerated', 'true');
+      }
+      // Populate edit fields with current values
+      document.getElementById('edit-aadhaar').value = document.getElementById('aadhaar-display').textContent;
+      document.getElementById('edit-name').value = document.getElementById('name-display').textContent;
+      document.getElementById('edit-dob').value = document.getElementById('dob-display').textContent.replace('जन्म तारीख / DOB: ', '');
+    });
+
+    function updateDetails() {
+      const aadhaar = document.getElementById('edit-aadhaar').value;
+      const name = document.getElementById('edit-name').value;
+      const dob = document.getElementById('edit-dob').value;
+
+      if (aadhaar) {
+        document.getElementById('aadhaar-display').textContent = aadhaar;
+        document.getElementById('aadhaar-display-back').textContent = aadhaar;
+      }
+      if (name) {
+        document.getElementById('name-display').textContent = name;
+      }
+      if (dob) {
+        document.getElementById('dob-display').textContent = 'जन्म तारीख / DOB: ' + dob;
+      }
+    }
   </script>
 </body>
 </html>
