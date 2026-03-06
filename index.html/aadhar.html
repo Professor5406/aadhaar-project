@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aadhaar Card (Front + Back)</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .aadhaar-card {
+      width: 700px;
+      border: 2px solid #000;
+      margin: 0 auto;
+      padding: 15px;
+      position: relative;
+      page-break-after: always;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #000;
+      padding-bottom: 5px;
+    }
+
+    .header img {
+      height: 60px;
+    }
+
+    .title {
+      text-align: center;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .title h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #000;
+    }
+
+    .flag-bar {
+      height: 6px;
+      background: linear-gradient(to right, #ff9933 33%, #ffffff 33%, #ffffff 66%, #138808 66%);
+      margin-top: 6px;
+    }
+
+    .side-text {
+      writing-mode: vertical-lr;
+      position: absolute;
+      left: -5px;
+      top: 35%;
+      transform: rotate(180deg);
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .main-content {
+      display: flex;
+      margin-top: 15px;
+    }
+
+    .photo {
+      width: 140px;
+      height: 160px;
+      border: 1px solid #aaa;
+      object-fit: cover;
+    }
+
+    .info {
+      margin-left: 20px;
+      flex: 1;
+    }
+
+    .info h3, .info p {
+      margin: 5px 0;
+    }
+
+    .warning {
+      border: 1px solid #d00;
+      padding: 8px;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .aadhaar-no {
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #c00;
+      font-size: 18px;
+    }
+
+    .footer span {
+      color: red;
+    }
+
+    .cut-line {
+      border-top: 2px dashed #000;
+      margin: 15px 0;
+    }
+
+    /* BACK SIDE STYLING */
+    .aadhaar-back {
+      width: 700px;
+      border: 2px solid #000;
+      margin: 40px auto 0;
+      padding: 15px;
+      position: relative;
+    }
+
+    .header-back {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #000;
+      padding-bottom: 5px;
+    }
+
+    .header-back img {
+      height: 60px;
+    }
+
+    .title-back {
+      text-align: center;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .title-back h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #000;
+    }
+
+    .title-back span {
+      color: #138808;
+      font-weight: bold;
+    }
+
+    .details {
+      writing-mode: vertical-lr;
+      position: absolute;
+      left: -5px;
+      top: 40%;
+      transform: rotate(180deg);
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .main-content-back {
+      display: flex;
+      margin-top: 15px;
+    }
+
+    .address {
+      flex: 2;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .address strong {
+      font-size: 15px;
+    }
+
+    .qr {
+      flex: 1;
+      text-align: right;
+    }
+
+    .qr img {
+      width: 220px;
+      height: 220px;
+      border: 1px solid #aaa;
+    }
+
+    .vid {
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .footer-back {
+      display: flex;
+      justify-content: space-around;
+      border-top: 2px solid red;
+      padding-top: 8px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FRONT SIDE -->
+  <div class="aadhaar-card">
+    <div class="header">
+      <img src=D:\aadhaar-project\images\emblem.png.jpeg alt="Emblem">
+      <div class="title">
+        <h2>भारत सरकार<br><span style="color:#006400;">Government of India</span></h2>
+      </div>
+      <img src=D:\aadhaar-project\images\aadhaar_logo.png.jpeg alt="Aadhaar Logo">
+    </div>
+
+    <div class="flag-bar"></div>
+    <div class="side-text">Aadhaar no. issued: 14/12/2011</div>
+
+    <div class="main-content">
+      <img src=D:\aadhaar-project\images\photo.jpg.jpeg alt="Photo" class="photo">
+      <div class="info">
+        <h3>Virat Patil</h3>
+        <p>जन्म तारीख / DOB: 03/06/2000</p>
+        <p>पुरुष / MALE</p>
+      </div>
+    </div>
+
+    <div class="warning">
+      <p><strong>आधार हा ओळखीचा पुरावा आहे, नागरिकत्व किंवा जन्मतारखेचा नाही.</strong><br>
+      हे फक्त पडताळणीसाठी वापरले जावे (ऑनलाइन प्रमाणिकरण किंवा QR कोडचे स्कॅनिंग / ऑफलाइन XML).<br><br>
+      <strong>Aadhaar is proof of identity, not of citizenship or date of birth.</strong><br>
+      It should be used with verification (online authentication, or scanning of QR code / offline XML).</p>
+    </div>
+
+    <div class="aadhaar-no">8226 1528 4611</div>
+    <div class="cut-line"></div>
+    <div class="footer">माझे <span>आधार</span>, माझी ओळख</div>
+  </div>
+
+  <!-- BACK SIDE -->
+  <div class="aadhaar-back">
+    <div class="header-back">
+      <img src=D:\aadhaar-project\images\emblem.png.jpeg alt="Emblem">
+      <div class="title-back">
+        <h3>भारतीय विशिष्ट ओळख प्राधिकरण<br><span>Unique Identification Authority of India</span></h3>
+      </div>
+      <img src=D:\aadhaar-project\images\aadhaar_logo.png.jpeg alt="Aadhaar Logo">
+    </div>
+
+    <div class="details">Details as on: 26/01/2026</div>
+
+    <div class="main-content-back">
+      <div class="address">
+        <p><strong>पत्ता:</strong><br>
+        S/O मिलिंद अण्णासाहेब पाटील, सरलाई, 849/2,<br>
+        माध्याळ रोड, परीश्रम विद्यालयाच्या मागे,<br>
+        विद्या नगर, दुंडगे, कोल्हापूर, महाराष्ट्र - 416501<br><br>
+
+        <strong>Address:</strong><br>
+        S/O Milind Annasaheb Patil, Saralai, 849/2,<br>
+        Madhyal Road, Behind Parishram Vidyalaya,<br>
+        Vidya Nagar, Dundage, Kolhapur, Maharashtra - 416501
+        </p>
+      </div>
+      <div class="qr">
+        <img src=D:\aadhaar-project\images\qr.png.png alt="QR Code">
+      </div>
+    </div>
+
+    <div class="aadhaar-no">8226 1528 4611</div>
+    <div class="vid">VID: 9127 9972 3343 1123</div>
+    <div class="footer-back">
+      <div>📞 1947</div>
+      <div>✉️ help@uidai.gov.in</div>
+      <div>🌐 www.uidai.gov.in</div>
+    </div>
+  </div>
+
+</body>
+</html>

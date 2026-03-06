@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Driving Licence - Maharashtra</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #e5eef7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .licence-card {
+    width: 800px;
+    height: 400px;
+    background: linear-gradient(to bottom, #dceeff, #f5faff);
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    padding: 20px 25px;
+    position: relative;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #000;
+    padding-bottom: 6px;
+  }
+
+  .header img {
+    height: 60px;
+  }
+
+  .header-text {
+    flex: 1;
+    text-align: center;
+  }
+
+  .header-text h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #000;
+  }
+
+  .header-text h3 {
+    margin: 2px 0 0 0;
+    font-size: 18px;
+    font-weight: normal;
+    color: #000;
+  }
+
+  .mh-circle {
+    background: #ff9933;
+    color: #000;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 2px solid #000;
+  }
+
+  .licence-no {
+    margin-top: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+  }
+
+  .details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 10px;
+    gap: 10px;
+    font-size: 15px;
+  }
+
+  .details strong {
+    color: #000;
+  }
+
+  .main-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .left-info {
+    flex: 1.6;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .right-photo {
+    flex: 0.6;
+    text-align: right;
+  }
+
+  .photo {
+    width: 120px;
+    height: 140px;
+    border: 1px solid #000;
+    object-fit: cover;
+  }
+
+  .signature {
+    width: 120px;
+    height: 35px;
+    margin-top: 5px;
+  }
+
+  .side-text {
+    writing-mode: vertical-lr;
+    position: absolute;
+    right: -20px;
+    top: 30%;
+    transform: rotate(180deg);
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .footer {
+    font-size: 13px;
+    color: #000;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="licence-card">
+  <!-- Header -->
+  <div class="header">
+    <img src=D:\aadhaar-project\images\emblem.png.jpeg alt="Emblem">
+    <div class="header-text">
+      <h2>Indian Union Driving Licence</h2>
+      <h3>Issued by Government of Maharashtra</h3>
+    </div>
+    <div class="mh-circle">MH</div>
+  </div>
+
+  <!-- Licence Number -->
+  <div class="licence-no">MH09 20260002599</div>
+
+  <!-- Validity details -->
+  <div class="details">
+    <div><strong>Issue Date:</strong><br>04-02-2026</div>
+    <div><strong>Validity (NT):</strong><br>23-09-2044</div>
+    <div><strong>Validity (TR):</strong><br>—</div>
+  </div>
+
+  <!-- Main Info -->
+  <div class="main-section">
+    <div class="left-info">
+      <p><strong>Name:</strong> SUMEET PATIL</p>
+      <p><strong>Date of Birth:</strong> 24-09-2004 &nbsp;&nbsp;&nbsp; <strong>Blood Group:</strong> —</p>
+      <p><strong>Son / Daughter / Wife of:</strong> MILIND PATIL</p>
+      <p><strong>Address:</strong><br>
+      SARALAI 849/2 MADHYAL ROAD<br>
+      BEHIND PARISHRAM VIDYALAYA<br>
+      VIDYA NAGAR, DUNDAGE<br>
+      GADHINGLAJ, KOLHAPUR, MH 416501</p>
+    </div>
+
+    <div class="right-photo">
+      <img src=D:\aadhaar-project\images\photo.jpg.jpeg alt="Holder Photo" class="photo"><br>
+      <img src=D:\aadhaar-project\images\sign.png.jpeg alt="Signature" class="signature"><br>
+      <small>Holder's Signature</small>
+    </div>
+  </div>
+
+  <!-- Side text -->
+  <div class="side-text">Date of First Issue 04-02-2026</div>
+
+  <!-- Footer -->
+  <div class="footer">Organ Donor: N</div>
+</div>
+
+</body>
+</html>
