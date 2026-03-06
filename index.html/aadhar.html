@@ -228,8 +228,8 @@
     <div class="main-content">
       <img src=D:\aadhaar-project\images\photo.jpg.jpeg alt="Photo" class="photo">
       <div class="info">
-        <h3>Virat Patil</h3>
-        <p>जन्म तारीख / DOB: 03/06/2000</p>
+        <h3 id="name-display">Virat Patil</h3>
+        <p id="dob-display">जन्म तारीख / DOB: 03/06/2000</p>
         <p>पुरुष / MALE</p>
       </div>
     </div>
@@ -241,7 +241,7 @@
       It should be used with verification (online authentication, or scanning of QR code / offline XML).</p>
     </div>
 
-    <div class="aadhaar-no">8226 1528 4611</div>
+    <div class="aadhaar-no" id="aadhaar-display">8226 1528 4611</div>
     <div class="cut-line"></div>
     <div class="footer">माझे <span>आधार</span>, माझी ओळख</div>
   </div>
@@ -276,7 +276,7 @@
       </div>
     </div>
 
-    <div class="aadhaar-no">8226 1528 4611</div>
+    <div class="aadhaar-no" id="aadhaar-display-back">8226 1528 4611</div>
     <div class="vid">VID: 9127 9972 3343 1123</div>
     <div class="footer-back">
       <div>📞 1947</div>
@@ -285,5 +285,55 @@
     </div>
   </div>
 
+
+  <script>
+    // simple arrays of common Indian first and last names
+    const firstNames = [
+      "Aarav","Arjun","Rohan","Rahul","Vishal","Raj","Manish","Deepak","Anil"
+    ];
+    const lastNames = [
+      "Sharma","Verma","Patel","Singh","Kumar","Gupta","Jain","Malhotra",
+      "Reddy","Nair","Iyer","Chopra","Nagar","Menon","Bhatt","Joshi",
+      "Mehta","Desai","Agarwal","Shetty"
+    ];
+
+    function randomName() {
+      const first = firstNames[Math.floor(Math.random() * firstNames.length)];
+      const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+      return first + ' ' + last;
+    }
+
+    function randomDOB() {
+      const start = new Date(2000,0,1).getTime();
+      const end = new Date(2006,11,31).getTime();
+      const date = new Date(start + Math.random() * (end - start));
+      const dd = String(date.getDate()).padStart(2, '0');
+      const mm = String(date.getMonth() + 1).padStart(2, '0');
+      const yyyy = date.getFullYear();
+      return dd + '/' + mm + '/' + yyyy;
+    }
+
+    function randomAadhaar() {
+      let digits = '';
+      for (let i = 0; i < 12; i++) {
+        digits += Math.floor(Math.random() * 10);
+      }
+      return digits.replace(/(\d{4})(\d{4})(\d{4})/, '$1 $2 $3');
+    }
+
+    function applyRandomData() {
+      const nameElem = document.getElementById('name-display');
+      const dobElem = document.getElementById('dob-display');
+      const aadFront = document.getElementById('aadhaar-display');
+      const aadBack = document.getElementById('aadhaar-display-back');
+      if (nameElem) nameElem.textContent = randomName();
+      if (dobElem) dobElem.textContent = 'जन्म तारीख / DOB: ' + randomDOB();
+      const aad = randomAadhaar();
+      if (aadFront) aadFront.textContent = aad;
+      if (aadBack) aadBack.textContent = aad;
+    }
+
+    window.addEventListener('DOMContentLoaded', applyRandomData);
+  </script>
 </body>
 </html>
